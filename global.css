@@ -1,0 +1,479 @@
+/* ================================================================
+   GLOBAL.CSS — Styles de base, En-tête, Pied de page & Utilitaires
+   ================================================================ */
+
+/* ── RÉINITIALISATION DE BASE (RESET) ────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--police-corps);
+  color: var(--texte-principal);
+  background-color: var(--fond-principal);
+  line-height: var(--hauteur-ligne-normal);
+  overflow-x: hidden;
+  padding-top: var(--hauteur-entete);
+}
+
+/* Ajustement du padding du body sur desktop pour la barre de contact */
+@media (min-width: 1024px) {
+  body {
+    padding-top: var(--hauteur-totale-entete);
+  }
+}
+
+/* Empêcher le scroll du fond quand le menu mobile est actif */
+body.corps--menu-ouvert {
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-rapide);
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── BOUTONS STYLISÉS (COMPOSANT GLOBAL) ──────────────────────── */
+.bouton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espace-2);
+  font-family: var(--police-corps);
+  font-weight: var(--poids-semi-gras);
+  border: none;
+  border-radius: var(--arrondi-md);
+  cursor: pointer;
+  transition: var(--transition-normale);
+  white-space: nowrap;
+}
+
+.bouton--primaire {
+  background-color: var(--bleu-clair);
+  color: var(--texte-blanc);
+}
+.bouton--primaire:hover {
+  background-color: var(--bleu-clair-fonce);
+  transform: translateY(-2px);
+  box-shadow: var(--ombre-sm);
+}
+
+.bouton--secondaire {
+  background-color: transparent;
+  color: var(--bleu-fonce);
+  border: var(--bordure-moy);
+  border-color: var(--bleu-clair);
+}
+.bouton--secondaire:hover {
+  background-color: var(--bleu-clair-tres-clair);
+}
+
+.bouton--urgence {
+  background-color: var(--rouge-urgence);
+  color: var(--texte-blanc);
+  box-shadow: 0 4px 14px rgba(220, 38, 38, 0.3);
+}
+.bouton--urgence:hover {
+  background-color: #b91c1c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+}
+
+.bouton--whatsapp {
+  background-color: var(--vert-whatsapp);
+  color: var(--texte-blanc);
+}
+.bouton--whatsapp:hover {
+  background-color: var(--vert-whatsapp-fonce);
+}
+
+.bouton--large {
+  padding: var(--espace-4) var(--espace-8);
+  font-size: var(--taille-md);
+}
+
+.bouton--petit {
+  padding: var(--espace-2) var(--espace-4);
+  font-size: var(--taille-sm);
+  border-radius: var(--arrondi-sm);
+}
+
+/* ── EN-TÊTE & HEADER DE NAVIGATION ─────────────────────────── */
+.entete {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--ombre-xs);
+  z-index: var(--z-navigation);
+  transition: var(--transition-normale);
+}
+
+.entete--defilé {
+  box-shadow: var(--ombre-md);
+}
+
+/* Top bar contact (Masqué sur mobile) */
+.entete__barre-contact {
+  display: none;
+  background-color: var(--bleu-fonce);
+  color: var(--texte-blanc);
+  font-size: var(--taille-sm);
+  padding: var(--espace-2) 0;
+}
+
+.entete__barre-contact-interieur {
+  max-width: var(--largeur-max);
+  margin: 0 auto;
+  padding: 0 var(--padding-conteneur);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.entete__tel-rapide {
+  font-weight: var(--poids-semi-gras);
+  color: var(--bleu-clair-tres-clair);
+}
+
+@media (min-width: 1024px) {
+  .entete__barre-contact {
+    display: block;
+  }
+}
+
+/* Navigation Structure */
+.navigation {
+  max-width: var(--largeur-max);
+  margin: 0 auto;
+  padding: 0 var(--padding-conteneur);
+  height: var(--hauteur-entete);
+  display: flex;
+  align-items: center;
+}
+
+.navigation__contenu {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo Placeholder */
+.navigation__logo-placeholder {
+  display: flex;
+  align-items: center;
+  gap: var(--espace-3);
+}
+
+.navigation__logo-initiales {
+  background-color: var(--bleu-fonce);
+  color: var(--texte-blanc);
+  font-weight: var(--poids-gras);
+  font-size: var(--taille-md);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--arrondi-md);
+}
+
+.navigation__logo-texte strong {
+  display: block;
+  font-family: var(--police-titre);
+  font-size: var(--taille-lg);
+  color: var(--bleu-fonce);
+  line-height: var(--hauteur-ligne-serre);
+}
+
+.navigation__logo-texte em {
+  font-size: var(--taille-xs);
+  color: var(--gris-technique);
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Menu de navigation (Masqué sur mobile) */
+.navigation__liens {
+  display: none;
+  gap: var(--espace-6);
+}
+
+.navigation__lien {
+  font-weight: var(--poids-moyen);
+  color: var(--texte-secondaire);
+  padding: var(--espace-2) 0;
+  position: relative;
+}
+
+.navigation__lien:hover,
+.navigation__lien:focus {
+  color: var(--bleu-clair);
+}
+
+@media (min-width: 1024px) {
+  .navigation__liens {
+    display: flex;
+  }
+}
+
+.navigation__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--espace-4);
+}
+
+.navigation__cta-tel {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .navigation__cta-tel {
+    display: inline-flex;
+  }
+}
+
+/* Bouton Burger Mobile */
+.navigation__burger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: var(--z-menu-mobile);
+}
+
+.navigation__burger-barre {
+  width: 100%;
+  height: 2px;
+  background-color: var(--bleu-fonce);
+  transition: var(--transition-normale);
+  transform-origin: left center;
+}
+
+.navigation__burger--actif .navigation__burger-barre:nth-child(1) {
+  transform: rotate(45deg) translate(2px, -1px);
+}
+.navigation__burger--actif .navigation__burger-barre:nth-child(2) {
+  opacity: 0;
+}
+.navigation__burger--actif .navigation__burger-barre:nth-child(3) {
+  transform: rotate(-45deg) translate(2px, 1px);
+}
+
+@media (min-width: 1024px) {
+  .navigation__burger {
+    display: none;
+  }
+}
+
+/* ── INTERFACE MENU MOBILE DÉROULANT ────────────────────────── */
+.menu-mobile {
+  position: fixed;
+  top: var(--hauteur-entete);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--fond-principal);
+  padding: var(--espace-8) var(--padding-conteneur);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-10);
+  transform: translateX(100%);
+  transition: var(--transition-douce);
+  z-index: var(--z-menu-mobile);
+}
+
+.menu-mobile--ouvert {
+  transform: translateX(0);
+}
+
+.menu-mobile__liste {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-5);
+}
+
+.menu-mobile__lien {
+  font-family: var(--police-titre);
+  font-size: var(--taille-2xl);
+  color: var(--bleu-fonce);
+  font-weight: var(--poids-semi-gras);
+}
+
+.menu-mobile__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-4);
+  margin-top: auto;
+  padding-bottom: var(--hauteur-barre-mobile);
+}
+
+/* ── PIED DE PAGE (FOOTER) ──────────────────────────────────── */
+.pied-de-page {
+  background-color: var(--fond-sombre);
+  color: #a0aec0;
+  padding: var(--espace-16) 0 var(--espace-24) 0; /* Padding bas étendu pour barre mobile */
+  font-size: var(--taille-sm);
+}
+
+.pied-de-page__contenu {
+  max-width: var(--largeur-max);
+  margin: 0 auto;
+  padding: 0 var(--padding-conteneur);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espace-10);
+}
+
+@media (min-width: 768px) {
+  .pied-de-page__contenu {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.pied-de-page__identite p {
+  margin-bottom: var(--espace-2);
+}
+
+.pied-de-page__nom {
+  font-family: var(--police-titre);
+  font-size: var(--taille-xl);
+  color: var(--texte-blanc);
+  font-weight: var(--poids-gras);
+}
+
+.pied-de-page__nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-3);
+}
+
+.pied-de-page__nav a:hover {
+  color: var(--texte-blanc);
+}
+
+.pied-de-page__certifs-titre {
+  color: var(--texte-blanc);
+  font-weight: var(--poids-semi-gras);
+  margin-bottom: var(--espace-3);
+}
+
+.pied-de-page__certifs p {
+  margin-bottom: var(--espace-2);
+  display: flex;
+  align-items: center;
+  gap: var(--espace-2);
+}
+
+.pied-de-page__bas {
+  max-width: var(--largeur-max);
+  margin: var(--espace-12) auto 0 auto;
+  padding: var(--espace-6) var(--padding-conteneur) 0 var(--padding-conteneur);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-4);
+  justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+  .pied-de-page__bas {
+    flex-direction: row;
+  }
+}
+
+.pied-de-page__liens-legaux {
+  display: flex;
+  gap: var(--espace-4);
+}
+
+/* ── BARRE ULTRA-ACCESSIBLE UNIQUE MOBILE (FIXED BOTTOM) ─────── */
+.barre-mobile-fixe {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--hauteur-barre-mobile);
+  background-color: var(--fond-principal);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  z-index: var(--z-barre-mobile);
+}
+
+.barre-mobile-fixe__bouton {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: var(--poids-moyen);
+  color: var(--texte-secondaire);
+  gap: 2px;
+}
+
+.barre-mobile-fixe__bouton i {
+  font-size: 20px;
+}
+
+.barre-mobile-fixe__bouton--appel {
+  background-color: var(--rouge-urgence-clair);
+  color: var(--rouge-urgence);
+}
+
+.barre-mobile-fixe__bouton--devis {
+  background-color: var(--bleu-fonce-tres-clair);
+  color: var(--bleu-fonce);
+}
+
+.barre-mobile-fixe__bouton--whatsapp {
+  background-color: #e6f9ed;
+  color: var(--vert-whatsapp-fonce);
+}
+
+@media (min-width: 768px) {
+  .barre-mobile-fixe {
+    display: none;
+  }
+  .pied-de-page {
+    padding-bottom: var(--espace-16);
+  }
+}
+
+/* ── MODULE UTILITAIRE D'ANIMATION AU SCROLL ─────────────────── */
+.a-animer {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s var(--transition-douce), transform 0.6s var(--transition-douce);
+}
+
+.est-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

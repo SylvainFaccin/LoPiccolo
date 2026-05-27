@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- ============================================================
+       MÉTADONNÉES & CONFIGURATION
+       Site vitrine de Florian Lo Piccolo - Plomberie & Climatisation
+       Structure : 5 sections + Header/Footer
+       ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Florian Lo Piccolo – Artisan indépendant en plomberie et climatisation. Intervention rapide, devis gratuit. Qualifié RGE, fluides frigorigènes." />
+  <meta name="keywords" content="plombier, climatisation, pompe à chaleur, dépannage, devis, artisan" />
+  <title>Florian Lo Piccolo | Plomberie & Climatisation</title>
+
+  <!-- ── Polices Google Fonts ─────────────────────────────────── -->
+  <!-- Cormorant Garamond : serif élégant pour les titres (h1, h2) -->
+  <!-- Outfit : sans-serif moderne pour le corps de texte          -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- ── Icônes Remix Icon (légères, vectorielles) ─────────────── -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+
+  <!-- ── Feuilles de style modulaires ──────────────────────────── -->
+  <!-- Ordre de chargement important : variables → global → sections -->
+  <link rel="stylesheet" href="variables.css" />
+  <link rel="stylesheet" href="global.css" />
+  <link rel="stylesheet" href="accueil.css" />
+  <link rel="stylesheet" href="services.css" />
+  <link rel="stylesheet" href="apropos.css" />
+  <link rel="stylesheet" href="galerie.css" />
+  <link rel="stylesheet" href="contact.css" />
+</head>
+
+<body>
+
+  <!-- ============================================================
+       EN-TÊTE & NAVIGATION PRINCIPALE
+       Fixée en haut, fond blanc semi-transparent avec flou
+       ============================================================ -->
+  <header class="entete" id="entete-principal">
+
+    <!-- Barre de contact rapide (visible desktop uniquement) -->
+    <div class="entete__barre-contact">
+      <div class="entete__barre-contact-interieur">
+        <span><i class="ri-map-pin-2-line"></i> [Insérer Ville / Zone d'intervention]</span>
+        <span><i class="ri-time-line"></i> Lun–Sam : 8h–19h | Urgences 24h/7j</span>
+        <a href="tel:+33XXXXXXXXX" class="entete__tel-rapide">
+          <i class="ri-phone-fill"></i> [Insérer Numéro]
+        </a>
+      </div>
+    </div>
+
+    <!-- Barre de navigation principale -->
+    <nav class="navigation" role="navigation" aria-label="Navigation principale">
+      <div class="navigation__contenu">
+
+        <!-- ── Logo & Identité ──────────────────────────────────── -->
+        <a href="#accueil" class="navigation__logo" aria-label="Accueil - Florian Lo Piccolo">
+          <!-- Emplacement du logo image : remplacez ce bloc par votre balise <img> -->
+          <div class="navigation__logo-placeholder" aria-hidden="true">
+            <span class="navigation__logo-initiales">FL</span>
+            <div class="navigation__logo-texte">
+              <strong>Florian Lo Piccolo</strong>
+              <em>Plomberie · Climatisation</em>
+            </div>
+          </div>
+        </a>
+
+        <!-- ── Liens de navigation (desktop) ──────────────────── -->
+        <ul class="navigation__liens" role="list">
+          <li><a href="#accueil" class="navigation__lien">Accueil</a></li>
+          <li><a href="#services" class="navigation__lien">Services</a></li>
+          <li><a href="#a-propos" class="navigation__lien">À propos</a></li>
+          <li><a href="#galerie" class="navigation__lien">Réalisations</a></li>
+          <li><a href="#contact" class="navigation__lien">Contact</a></li>
+        </ul>
+
+        <!-- ── CTA Navigation + Bouton burger mobile ──────────── -->
+        <div class="navigation__actions">
+          <a href="tel:+33XXXXXXXXX" class="bouton bouton--primaire bouton--petit navigation__cta-tel">
+            <i class="ri-phone-fill"></i> Appeler
+          </a>
+          <!-- Bouton menu burger (mobile uniquement) -->
+          <button class="navigation__burger" id="bouton-burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu-mobile">
+            <span class="navigation__burger-barre"></span>
+            <span class="navigation__burger-barre"></span>
+            <span class="navigation__burger-barre"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ── Menu mobile déroulant ─────────────────────────────── -->
+      <div class="menu-mobile" id="menu-mobile" aria-hidden="true">
+        <ul class="menu-mobile__liste" role="list">
+          <li><a href="#accueil"   class="menu-mobile__lien" data-fermer-menu>Accueil</a></li>
+          <li><a href="#services"  class="menu-mobile__lien" data-fermer-menu>Services</a></li>
+          <li><a href="#a-propos"  class="menu-mobile__lien" data-fermer-menu>À propos</a></li>
+          <li><a href="#galerie"   class="menu-mobile__lien" data-fermer-menu>Réalisations</a></li>
+          <li><a href="#contact"   class="menu-mobile__lien" data-fermer-menu>Contact</a></li>
+        </ul>
+        <div class="menu-mobile__actions">
+          <a href="tel:+33XXXXXXXXX" class="bouton bouton--primaire bouton--large">
+            <i class="ri-phone-fill"></i> Appeler maintenant
+          </a>
+          <a href="https://wa.me/33XXXXXXXXX" class="bouton bouton--whatsapp bouton--large" target="_blank" rel="noopener">
+            <i class="ri-whatsapp-line"></i> WhatsApp
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- /FIN ENTÊTE -->
+
+
+  <!-- ============================================================
+       SECTION 1 : ACCUEIL — BLOC HERO
+       Première impression : titre fort + 2 CTA principaux
+       ============================================================ -->
+  <main id="contenu-principal">
+
+  <section id="accueil" class="section-accueil" aria-labelledby="titre-accueil">
+
+    <!-- Fond animé avec particules géométriques décoratives -->
+    <div class="accueil__fond" aria-hidden="true">
+      <div class="accueil__fond-forme accueil__fond-forme--1"></div>
+      <div class="accueil__fond-forme accueil__fond-forme--2"></div>
+      <div class="accueil__fond-forme accueil__fond-forme--3"></div>
+      <div class="accueil__fond-grille"></div>
+    </div>
+
+    <div class="accueil__contenu">
+
+      <!-- Étiquette de crédibilité (badge) -->
+      <div class="accueil__badge" role="note">
+        <i class="ri-shield-check-fill"></i>
+        <span>Artisan certifié · Fluides frigorigènes · Devis gratuit</span>
+      </div>
+
+      <!-- Titre principal H1 -->
+      <h1 class="accueil__titre" id="titre-accueil">
+        Votre artisan de confiance<br />
+        <em>Plomberie &amp; Climatisation</em>
+      </h1>
+
+      <!-- Accroche marketing -->
+      <p class="accueil__accroche">
+        Une fuite, une panne de clim, un projet de rénovation ?<br />
+        <strong>Florian intervient rapidement</strong>, seul et qualifié, pour un travail soigné du premier coup.
+      </p>
+
+      <!-- Indicateurs de réassurance (icônes + texte court) -->
+      <ul class="accueil__reassurances" role="list" aria-label="Nos engagements">
+        <li class="accueil__reassurance">
+          <i class="ri-timer-flash-line" aria-hidden="true"></i>
+          <span>Réactivité 24h/7j</span>
+        </li>
+        <li class="accueil__reassurance">
+          <i class="ri-trophy-line" aria-hidden="true"></i>
+          <span>6 ans d'expérience</span>
+        </li>
+        <li class="accueil__reassurance">
+          <i class="ri-map-pin-2-line" aria-hidden="true"></i>
+          <span>Artisan local</span>
+        </li>
+        <li class="accueil__reassurance">
+          <i class="ri-file-list-3-line" aria-hidden="true"></i>
+          <span>Devis gratuit</span>
+        </li>
+      </ul>
+
+      <!-- CTA principaux : Appel urgence + Devis -->
+      <div class="accueil__ctas">
+        <a href="tel:+33XXXXXXXXX" class="bouton bouton--urgence bouton--large">
+          <i class="ri-phone-fill" aria-hidden="true"></i>
+          Appeler maintenant — Urgence
+        </a>
+        <a href="#contact" class="bouton bouton--devis bouton--large">
+          <i class="ri-file-text-line" aria-hidden="true"></i>
+          Demander un devis gratuit
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Illustration décorative (droite desktop) -->
+    <div class="accueil__illustration" aria-hidden="true">
+      <div class="accueil__illustration-carte accueil__illustration-carte--1">
+        <i class="ri-tools-fill"></i>
+        <span>Dépannage express</span>
+      </div>
+      <div class="accueil__illustration-cercle">
+        <i class="ri-water-flash-line"></i>
+      </div>
+      <div class="accueil__illustration-carte accueil__illustration-carte--2">
+        <i class="ri-wind-line"></i>
+        <span>Climatisation PAC</span>
+      </div>
+      <div class="accueil__illustration-carte accueil__illustration-carte--3">
+        <i class="ri-drop-fill"></i>
+        <span>Plomberie neuf & réno</span>
+      </div>
+    </div>
+
+    <!-- Flèche scroll vers le bas -->
+    <a href="#services" class="accueil__scroll-bas" aria-label="Voir les services">
+      <i class="ri-arrow-down-line" aria-hidden="true"></i>
+    </a>
+
+  </section>
+  <!-- /FIN SECTION ACCUEIL -->
+
+
+  <!-- ============================================================
+       SECTION 2 : SERVICES / PRESTATIONS
+       3 blocs distincts sous forme de cartes
+       ============================================================ -->
+  <section id="services" class="section-services" aria-labelledby="titre-services">
+
+    <div class="services__en-tete">
+      <p class="services__sous-titre">Ce que je fais pour vous</p>
+      <h2 class="services__titre" id="titre-services">Mes prestations</h2>
+      <p class="services__description">
+        De l'installation complète au dépannage d'urgence, je prends en charge tous vos besoins
+        en plomberie et climatisation avec le même niveau d'exigence et de soin.
+      </p>
+    </div>
+
+    <!-- Grille des 3 blocs de services -->
+    <div class="services__grille">
+
+      <!-- ── Bloc 1 : Climatisation & PAC ──────────────────────── -->
+      <article class="services__carte services__carte--clim" aria-label="Service Climatisation et PAC">
+        <div class="services__carte-icone" aria-hidden="true">
+          <i class="ri-wind-line"></i>
+        </div>
+        <h3 class="services__carte-titre">Climatisation & PAC</h3>
+        <p class="services__carte-accroche">
+          Confort thermique toute l'année, été comme hiver.
+        </p>
+        <ul class="services__carte-liste" role="list">
+          <li><i class="ri-check-line" aria-hidden="true"></i> Installation de climatiseurs & splits</li>
+          <li><i class="ri-check-line" aria-hidden="true"></i> Pompes à chaleur air/air multimarque</li>
+          <li><i class="ri-check-line" aria-hidden="true"></i> Entretien & maintenance annuelle</li>
+          <li><i class="ri-check-line" aria-hidden="true"></i> Dépannage toutes marques</li>
+          <li><i class="ri-check-line" aria-hidden="true"></i> Optimisation énergétique</li>
+        </ul>
+        <a href="#contact" class="bouton bouton--secondaire services__carte-bouton">
+          Demander un devis <i class="ri-arrow-right-line" aria-hidden="true"></i>
+        </a>
+      </article>
+
+      <!-- ── Bloc 2 : Plomberie (mis en avant, carte centrale) ─── -->
+      <article class="services__carte services__carte--plomberie services__carte--vedette" aria-label="Service Plomberie">
+        <div class="services__carte-badge" aria-hidden="true">Plus demandé</div>
+        <div class="services__carte-icone" aria-hidden="true">
+          <i class="ri-drop-fill"></i>
+        </div>
+        <h3 class="services__carte-titre">Plomberie</h3>
+        <p class="services__carte-accroche">
+          Neuf, rénovation ou réparation : je m'occupe de tout.
+        </p>
+        <ul class="services__carte-liste" role="list">
+          <li><i class="ri-check-line" aria-hidden="true"></i> Plomberie neuve & rénovation</li>
+          <li><i class="ri-check-line" aria-hidden="true"></i> Création salles de bain & cuisines</li>
+          <li><i class="ri-check-line" aria-hidden="true"></i> Remplacement chauffe-eau & cumulus</li>
+          <li><i class="ri-check-line" aria-hidden="true"></i> Tuyauterie & raccordements</li>
+          <li><i class="ri-check-line" aria-hidden="true"></i> Sanitaires & robinetterie</li>
+        </ul>
+        <a href="#contact" class="bouton bouton--primaire services__carte-bouton">
+          Demander un devis <i class="ri-arrow-right-line" aria-hidden="true"></i>
+        </a>
+      </article>
+
+      <!-- ── Bloc 3 : Urgences & Dépannage ─────────────────────── -->
+      <article class="services__carte services__carte--urgence" aria-label="Service Urgences et dépannage">
+        <div class="services__carte-icone" aria-hidden="true">
+          <i class="ri-alarm-warning-line"></i>
+        </div>
+        <h3 class="services__carte-titre">Urgences &amp; Dépannage</h3>
+        <p class="services__carte-accroche">
+          Je suis là quand vous en avez vraiment besoin.
+        </p>
+        <ul class="services__carte-liste" role="list">
+          <li><i class="ri-check-line" aria-hidden="true"></i> Fuite d'eau détectée & réparée</li>
+          <li><i class="ri-check-line" aria-hidden="true"></i> Panne de climatisation urgente</li>
+          <li><i class="ri-check-line" aria-hidden="true"></i> Canalisation bouchée</li>
+          <li><i class="ri-check-line" aria-hidden="true"></i> Chauffe-eau en panne</li>
+          <li><i class="ri-check-line" aria-hidden="true"></i> Intervention rapide 24h/7j</li>
+        </ul>
+        <a href="tel:+33XXXXXXXXX" class="bouton bouton--urgence services__carte-bouton">
+          <i class="ri-phone-fill" aria-hidden="true"></i> Appel d'urgence
+        </a>
+      </article>
+
+    </div>
+
+  </section>
+  <!-- /FIN SECTION SERVICES -->
+
+
+  <!-- ============================================================
+       SECTION 3 : À PROPOS
+       Présentation de Florian, diplômes, expérience, valeurs
+       ============================================================ -->
+  <section id="a-propos" class="section-apropos" aria-labelledby="titre-apropos">
+
+    <!-- Fond décoratif gauche -->
+    <div class="apropos__fond-deco" aria-hidden="true"></div>
+
+    <div class="apropos__contenu">
+
+      <!-- Colonne gauche : Photo & certifications -->
+      <div class="apropos__visuel">
+        <!-- Emplacement photo de Florian — remplacer src par votre photo -->
+        <div class="apropos__photo-cadre">
+          <div class="apropos__photo-placeholder" aria-label="Photo de Florian Lo Piccolo">
+            <i class="ri-user-3-line" aria-hidden="true"></i>
+            <span>Photo de Florian</span>
+          </div>
+          <!-- Badge "6 ans d'expérience" positionné sur la photo -->
+          <div class="apropos__photo-badge" aria-label="6 ans d'expérience">
+            <strong>6</strong>
+            <span>ans<br/>d'expérience</span>
+          </div>
+        </div>
+
+        <!-- Certifications & diplômes sous la photo -->
+        <div class="apropos__certifications" aria-label="Certifications et diplômes">
+          <p class="apropos__certifications-titre">Qualifications officielles</p>
+          <ul class="apropos__certifications-liste" role="list">
+            <li class="apropos__certification">
+              <div class="apropos__certification-icone" aria-hidden="true">
+                <i class="ri-medal-line"></i>
+              </div>
+              <div>
+                <strong>CAP Monteur Installateur Thermique</strong>
+                <em>Éducation Nationale</em>
+              </div>
+            </li>
+            <li class="apropos__certification">
+              <div class="apropos__certification-icone" aria-hidden="true">
+                <i class="ri-leaf-line"></i>
+              </div>
+              <div>
+                <strong>Attestation Manipulation Fluides Frigorigènes</strong>
+                <em>Catégorie 1 — Obligatoire PAC & Clim</em>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Colonne droite : Texte de présentation -->
+      <div class="apropos__texte">
+        <p class="apropos__sous-titre">Qui suis-je ?</p>
+        <h2 class="apropos__titre" id="titre-apropos">
+          Un artisan passionné,<br /><em>un travail irréprochable.</em>
+        </h2>
+
+        <p class="apropos__paragraphe">
+          Je m'appelle <strong>Florian Lo Piccolo</strong>. Artisan indépendant depuis 6 ans, je travaille
+          seul sur chacun de mes chantiers — ce qui signifie une chose simple : <strong>c'est moi qui
+          viens, c'est moi qui travaille, c'est moi qui assume le résultat.</strong>
+        </p>
+        <p class="apropos__paragraphe">
+          Pas de sous-traitants, pas de surprises. Votre projet est entre mes mains du début à la fin.
+          Cette façon de travailler me permet de soigner chaque détail, de respecter votre espace et
+          de tenir mes engagements — délai, propreté et qualité d'exécution.
+        </p>
+        <p class="apropos__paragraphe">
+          Titulaire du <strong>CAP Monteur Installateur Thermique</strong> et de l'
+          <strong>Attestation de manipulation des fluides frigorigènes</strong>, je réalise des
+          installations conformes aux normes en vigueur. Vous pouvez me faire confiance pour
+          des travaux durables, effectués dans les règles de l'art.
+        </p>
+
+        <!-- Valeurs / engagements -->
+        <ul class="apropos__engagements" role="list" aria-label="Mes engagements">
+          <li class="apropos__engagement">
+            <i class="ri-shield-check-line" aria-hidden="true"></i>
+            <div>
+              <strong>Transparence</strong>
+              <span>Devis détaillé avant chaque intervention, sans mauvaise surprise.</span>
+            </div>
+          </li>
+          <li class="apropos__engagement">
+            <i class="ri-time-line" aria-hidden="true"></i>
+            <div>
+              <strong>Ponctualité</strong>
+              <span>Je respecte les horaires convenus, votre temps a de la valeur.</span>
+            </div>
+          </li>
+          <li class="apropos__engagement">
+            <i class="ri-hammer-line" aria-hidden="true"></i>
+            <div>
+              <strong>Finitions soignées</strong>
+              <span>Je repars seulement quand le travail est propre, net et conforme.</span>
+            </div>
+          </li>
+        </ul>
+
+        <a href="#contact" class="bouton bouton--primaire bouton--large">
+          Me contacter directement <i class="ri-arrow-right-line" aria-hidden="true"></i>
+        </a>
+      </div>
+
+    </div>
+
+  </section>
+  <!-- /FIN SECTION À PROPOS -->
+
+
+  <!-- ============================================================
+       SECTION 4 : GALERIE / RÉALISATIONS
+       Grille de photos de chantiers avec étiquettes
+       ============================================================ -->
+  <section id="galerie" class="section-galerie" aria-labelledby="titre-galerie">
+
+    <div class="galerie__en-tete">
+      <p class="galerie__sous-titre">Portfolio</p>
+      <h2 class="galerie__titre" id="titre-galerie">Mes réalisations</h2>
+      <p class="galerie__description">
+        Chaque chantier est une référence. Voici quelques exemples de travaux réalisés
+        chez mes clients, de l'installation PAC à la rénovation complète de salle de bain.
+      </p>
+    </div>
+
+    <!-- Filtres de catégories -->
+    <div class="galerie__filtres" role="group" aria-label="Filtrer les réalisations">
+      <button class="galerie__filtre galerie__filtre--actif" data-filtre="tout" aria-pressed="true">Tout voir</button>
+      <button class="galerie__filtre" data-filtre="clim" aria-pressed="false">Climatisation</button>
+      <button class="galerie__filtre" data-filtre="plomberie" aria-pressed="false">Plomberie</button>
+      <button class="galerie__filtre" data-filtre="pac" aria-pressed="false">PAC</button>
+    </div>
+
+    <!-- Grille photo (placeholders avec Unsplash — libres de droits) -->
+    <div class="galerie__grille" id="galerie-grille">
+
+      <!-- Réalisation 1 : Installation PAC (grande carte) -->
+      <article class="galerie__carte galerie__carte--grande" data-categorie="pac" aria-label="Réalisation : Installation PAC">
+        <div class="galerie__carte-image">
+          <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80"
+               alt="Installation d'une pompe à chaleur air/air sur une maison individuelle"
+               loading="lazy" width="800" height="600" />
+        </div>
+        <div class="galerie__carte-info">
+          <span class="galerie__carte-categorie">Installation PAC</span>
+          <h3 class="galerie__carte-titre">Pompe à chaleur air/air</h3>
+          <p>Installation complète d'une PAC Daikin sur maison individuelle. Gain énergétique de 40%.</p>
+        </div>
+      </article>
+
+      <!-- Réalisation 2 : Rénovation salle de bain -->
+      <article class="galerie__carte" data-categorie="plomberie" aria-label="Réalisation : Rénovation salle de bain">
+        <div class="galerie__carte-image galerie__carte-image--avantapres">
+          <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80"
+               alt="Salle de bain rénovée avec douche à l'italienne"
+               loading="lazy" width="600" height="450" />
+          <span class="galerie__carte-image-etiquette">Après</span>
+        </div>
+        <div class="galerie__carte-info">
+          <span class="galerie__carte-categorie">Rénovation</span>
+          <h3 class="galerie__carte-titre">Salle de bain complète</h3>
+          <p>Création douche à l'italienne, pose de carrelage, robinetterie et meuble vasque.</p>
+        </div>
+      </article>
+
+      <!-- Réalisation 3 : Climatisation split -->
+      <article class="galerie__carte" data-categorie="clim" aria-label="Réalisation : Climatisation split">
+        <div class="galerie__carte-image">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80"
+               alt="Climatiseur split mural installé dans un salon"
+               loading="lazy" width="600" height="450" />
+        </div>
+        <div class="galerie__carte-info">
+          <span class="galerie__carte-categorie">Climatisation</span>
+          <h3 class="galerie__carte-titre">Split mural salon</h3>
+          <p>Pose d'un split mural Mitsubishi Electric dans un appartement — installation propre et discrète.</p>
+        </div>
+      </article>
+
+      <!-- Réalisation 4 : Chauffe-eau thermodynamique -->
+      <article class="galerie__carte" data-categorie="plomberie" aria-label="Réalisation : Chauffe-eau">
+        <div class="galerie__carte-image">
+          <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80"
+               alt="Remplacement d'un chauffe-eau thermodynamique"
+               loading="lazy" width="600" height="450" />
+        </div>
+        <div class="galerie__carte-info">
+          <span class="galerie__carte-categorie">Plomberie</span>
+          <h3 class="galerie__carte-titre">Chauffe-eau thermodynamique</h3>
+          <p>Remplacement d'un cumulus par un chauffe-eau thermodynamique économique.</p>
+        </div>
+      </article>
+
+      <!-- Réalisation 5 : Multisplit -->
+      <article class="galerie__carte" data-categorie="clim" aria-label="Réalisation : Multisplit">
+        <div class="galerie__carte-image">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80"
+               alt="Installation multisplit dans une maison neuve"
+               loading="lazy" width="600" height="450" />
+        </div>
+        <div class="galerie__carte-info">
+          <span class="galerie__carte-categorie">Climatisation</span>
+          <h3 class="galerie__carte-titre">Multisplit maison neuve</h3>
+          <p>Installation d'un système multisplit 4 têtes pour une climatisation centralisée.</p>
+        </div>
+      </article>
+
+      <!-- Réalisation 6 : Création cuisine -->
+      <article class="galerie__carte galerie__carte--grande" data-categorie="plomberie" aria-label="Réalisation : Cuisine neuve">
+        <div class="galerie__carte-image">
+          <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80"
+               alt="Création plomberie pour une cuisine ouverte rénovée"
+               loading="lazy" width="800" height="600" />
+        </div>
+        <div class="galerie__carte-info">
+          <span class="galerie__carte-categorie">Plomberie</span>
+          <h3 class="galerie__carte-titre">Cuisine ouverte — création</h3>
+          <p>Déplacement des alimentations et évacuations pour une cuisine ouverte réaménagée.</p>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- CTA bas de galerie -->
+    <div class="galerie__pied">
+      <p>Vous avez un projet en tête ?</p>
+      <a href="#contact" class="bouton bouton--primaire bouton--large">
+        Discutons-en <i class="ri-arrow-right-line" aria-hidden="true"></i>
+      </a>
+    </div>
+
+  </section>
+  <!-- /FIN SECTION GALERIE -->
+
+
+  <!-- ============================================================
+       SECTION 5 : CONTACT
+       Formulaire + infos de contact + réseaux sociaux
+       ============================================================ -->
+  <section id="contact" class="section-contact" aria-labelledby="titre-contact">
+
+    <div class="contact__en-tete">
+      <p class="contact__sous-titre">Parlons de votre projet</p>
+      <h2 class="contact__titre" id="titre-contact">Me contacter</h2>
+      <p class="contact__description">
+        Disponible pour tout devis, question ou urgence. Je réponds dans les meilleurs délais.
+      </p>
+    </div>
+
+    <div class="contact__contenu">
+
+      <!-- Colonne gauche : Informations de contact -->
+      <div class="contact__infos">
+
+        <h3 class="contact__infos-titre">Mes coordonnées</h3>
+
+        <!-- Téléphone (lien tel: pour clic mobile) -->
+        <a href="tel:+33XXXXXXXXX" class="contact__info-ligne contact__info-ligne--cliquable">
+          <div class="contact__info-icone" aria-hidden="true"><i class="ri-phone-fill"></i></div>
+          <div>
+            <strong>Téléphone</strong>
+            <span>[Insérer Numéro de Téléphone]</span>
+          </div>
+        </a>
+
+        <!-- Email (lien mailto:) -->
+        <a href="mailto:contact@exemple.fr" class="contact__info-ligne contact__info-ligne--cliquable">
+          <div class="contact__info-icone" aria-hidden="true"><i class="ri-mail-line"></i></div>
+          <div>
+            <strong>Email</strong>
+            <span>[Insérer Email]</span>
+          </div>
+        </a>
+
+        <!-- Zone d'intervention -->
+        <div class="contact__info-ligne">
+          <div class="contact__info-icone" aria-hidden="true"><i class="ri-map-pin-2-line"></i></div>
+          <div>
+            <strong>Zone d'intervention</strong>
+            <span>[Insérer Ville Principale & communes alentours]</span>
+          </div>
+        </div>
+
+        <!-- Horaires -->
+        <div class="contact__info-ligne">
+          <div class="contact__info-icone" aria-hidden="true"><i class="ri-time-line"></i></div>
+          <div>
+            <strong>Horaires</strong>
+            <span>Lun–Sam : 8h00 – 19h00</span>
+            <span class="contact__urgence-mention">Urgences : 24h/7j</span>
+          </div>
+        </div>
+
+        <!-- Boutons d'action directe -->
+        <div class="contact__boutons-directs">
+          <a href="tel:+33XXXXXXXXX" class="bouton bouton--urgence bouton--large contact__bouton-direct">
+            <i class="ri-phone-fill" aria-hidden="true"></i> Appeler maintenant
+          </a>
+          <a href="https://wa.me/33XXXXXXXXX" class="bouton bouton--whatsapp bouton--large contact__bouton-direct"
+             target="_blank" rel="noopener noreferrer">
+            <i class="ri-whatsapp-line" aria-hidden="true"></i> Écrire sur WhatsApp
+          </a>
+        </div>
+
+        <!-- Réseaux sociaux -->
+        <div class="contact__reseaux">
+          <p class="contact__reseaux-titre">Retrouvez-moi sur</p>
+          <div class="contact__reseaux-icones">
+            <a href="#" class="contact__reseau-lien contact__reseau-lien--facebook" aria-label="Facebook de Florian Lo Piccolo" target="_blank" rel="noopener">
+              <i class="ri-facebook-fill" aria-hidden="true"></i>
+            </a>
+            <a href="#" class="contact__reseau-lien contact__reseau-lien--instagram" aria-label="Instagram de Florian Lo Piccolo" target="_blank" rel="noopener">
+              <i class="ri-instagram-line" aria-hidden="true"></i>
+            </a>
+            <a href="#" class="contact__reseau-lien contact__reseau-lien--google" aria-label="Avis Google de Florian Lo Piccolo" target="_blank" rel="noopener">
+              <i class="ri-google-line" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Colonne droite : Formulaire de contact -->
+      <div class="contact__formulaire-contenant">
+        <form class="contact__formulaire" id="formulaire-contact"
+              action="#" method="POST"
+              aria-label="Formulaire de demande de devis ou contact">
+
+          <div class="formulaire__ligne formulaire__ligne--double">
+            <!-- Prénom -->
+            <div class="formulaire__groupe">
+              <label for="prenom" class="formulaire__etiquette">Prénom <span aria-hidden="true">*</span></label>
+              <input type="text" id="prenom" name="prenom"
+                     class="formulaire__champ"
+                     placeholder="Votre prénom"
+                     required autocomplete="given-name" />
+            </div>
+            <!-- Nom -->
+            <div class="formulaire__groupe">
+              <label for="nom" class="formulaire__etiquette">Nom <span aria-hidden="true">*</span></label>
+              <input type="text" id="nom" name="nom"
+                     class="formulaire__champ"
+                     placeholder="Votre nom"
+                     required autocomplete="family-name" />
+            </div>
+          </div>
+
+          <div class="formulaire__ligne formulaire__ligne--double">
+            <!-- Téléphone -->
+            <div class="formulaire__groupe">
+              <label for="telephone" class="formulaire__etiquette">Téléphone <span aria-hidden="true">*</span></label>
+              <input type="tel" id="telephone" name="telephone"
+                     class="formulaire__champ"
+                     placeholder="06 XX XX XX XX"
+                     required autocomplete="tel" />
+            </div>
+            <!-- Email -->
+            <div class="formulaire__groupe">
+              <label for="email" class="formulaire__etiquette">Email</label>
+              <input type="email" id="email" name="email"
+                     class="formulaire__champ"
+                     placeholder="votre@email.fr"
+                     autocomplete="email" />
+            </div>
+          </div>
+
+          <!-- Type de demande -->
+          <div class="formulaire__groupe">
+            <label for="type-demande" class="formulaire__etiquette">Type de demande <span aria-hidden="true">*</span></label>
+            <select id="type-demande" name="type-demande" class="formulaire__champ formulaire__champ--select" required>
+              <option value="" disabled selected>Sélectionner une option</option>
+              <option value="devis-clim">Devis Climatisation / PAC</option>
+              <option value="devis-plomberie">Devis Plomberie</option>
+              <option value="depannage">Dépannage / Urgence</option>
+              <option value="entretien">Entretien / Maintenance</option>
+              <option value="autre">Autre renseignement</option>
+            </select>
+          </div>
+
+          <!-- Message -->
+          <div class="formulaire__groupe">
+            <label for="message" class="formulaire__etiquette">Votre message <span aria-hidden="true">*</span></label>
+            <textarea id="message" name="message"
+                      class="formulaire__champ formulaire__champ--textarea"
+                      placeholder="Décrivez brièvement votre besoin (type de logement, problème constaté, délai souhaité…)"
+                      rows="5" required></textarea>
+          </div>
+
+          <!-- Consentement RGPD -->
+          <div class="formulaire__groupe formulaire__groupe--checkbox">
+            <input type="checkbox" id="rgpd" name="rgpd" class="formulaire__checkbox" required />
+            <label for="rgpd" class="formulaire__etiquette-checkbox">
+              J'accepte que mes données soient utilisées pour traiter ma demande. <a href="#" class="formulaire__lien-rgpd">Politique de confidentialité</a>.
+            </label>
+          </div>
+
+          <!-- Bouton d'envoi -->
+          <button type="submit" class="bouton bouton--primaire bouton--large formulaire__bouton-envoi">
+            <i class="ri-send-plane-2-line" aria-hidden="true"></i>
+            Envoyer ma demande
+          </button>
+
+        </form>
+      </div>
+
+    </div>
+
+  </section>
+  <!-- /FIN SECTION CONTACT -->
+
+  </main>
+  <!-- /FIN CONTENU PRINCIPAL -->
+
+
+  <!-- ============================================================
+       PIED DE PAGE (FOOTER)
+       Liens légaux, copyright, navigation rapide
+       ============================================================ -->
+  <footer class="pied-de-page" role="contentinfo">
+    <div class="pied-de-page__contenu">
+
+      <!-- Identité -->
+      <div class="pied-de-page__identite">
+        <p class="pied-de-page__nom">Florian Lo Piccolo</p>
+        <p class="pied-de-page__metier">Artisan Plombier · Spécialiste Climatisation</p>
+        <p class="pied-de-page__zone"><i class="ri-map-pin-2-line" aria-hidden="true"></i> [Zone d'intervention]</p>
+      </div>
+
+      <!-- Navigation rapide -->
+      <nav class="pied-de-page__nav" aria-label="Navigation du pied de page">
+        <ul role="list">
+          <li><a href="#accueil">Accueil</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#a-propos">À propos</a></li>
+          <li><a href="#galerie">Réalisations</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Certifications -->
+      <div class="pied-de-page__certifs">
+        <p class="pied-de-page__certifs-titre">Certifications</p>
+        <p><i class="ri-medal-line" aria-hidden="true"></i> CAP Monteur Installateur Thermique</p>
+        <p><i class="ri-leaf-line" aria-hidden="true"></i> Attestation Fluides Frigorigènes</p>
+      </div>
+
+    </div>
+
+    <!-- Bas du pied de page : légaux -->
+    <div class="pied-de-page__bas">
+      <p class="pied-de-page__copyright">
+        &copy; <span id="annee-en-cours"></span> Florian Lo Piccolo — Tous droits réservés
+      </p>
+      <div class="pied-de-page__liens-legaux">
+        <a href="#">Mentions légales</a>
+        <a href="#">Politique de confidentialité</a>
+      </div>
+    </div>
+
+  </footer>
+  <!-- /FIN FOOTER -->
+
+
+  <!-- ============================================================
+       BARRE MOBILE FLOTTANTE (fixée en bas sur téléphone)
+       Boutons CTA ultra-accessibles sur mobile
+       ============================================================ -->
+  <div class="barre-mobile-fixe" role="navigation" aria-label="Actions rapides mobiles">
+    <a href="tel:+33XXXXXXXXX" class="barre-mobile-fixe__bouton barre-mobile-fixe__bouton--appel">
+      <i class="ri-phone-fill" aria-hidden="true"></i>
+      <span>Appeler</span>
+    </a>
+    <a href="#contact" class="barre-mobile-fixe__bouton barre-mobile-fixe__bouton--devis">
+      <i class="ri-file-text-line" aria-hidden="true"></i>
+      <span>Devis</span>
+    </a>
+    <a href="https://wa.me/33XXXXXXXXX" class="barre-mobile-fixe__bouton barre-mobile-fixe__bouton--whatsapp"
+       target="_blank" rel="noopener noreferrer">
+      <i class="ri-whatsapp-line" aria-hidden="true"></i>
+      <span>WhatsApp</span>
+    </a>
+  </div>
+  <!-- /FIN BARRE MOBILE FIXE -->
+
+
+  <!-- ============================================================
+       JAVASCRIPT INLINE
+       Burger menu, défilement fluide, animations d'apparition,
+       mise à jour de l'année du copyright
+       ============================================================ -->
+  <script>
+    /* ── Mise à jour automatique de l'année de copyright ─────── */
+    document.getElementById('annee-en-cours').textContent = new Date().getFullYear();
+
+    /* ── Menu burger mobile ───────────────────────────────────── */
+    const boutonBurger = document.getElementById('bouton-burger');
+    const menuMobile   = document.getElementById('menu-mobile');
+    const liensFermer  = document.querySelectorAll('[data-fermer-menu]');
+
+    boutonBurger.addEventListener('click', function () {
+      const estOuvert = menuMobile.classList.toggle('menu-mobile--ouvert');
+      boutonBurger.setAttribute('aria-expanded', estOuvert);
+      menuMobile.setAttribute('aria-hidden', !estOuvert);
+      boutonBurger.classList.toggle('navigation__burger--actif');
+      document.body.classList.toggle('corps--menu-ouvert');
+    });
+
+    /* Fermeture du menu en cliquant sur un lien */
+    liensFermer.forEach(function (lien) {
+      lien.addEventListener('click', function () {
+        menuMobile.classList.remove('menu-mobile--ouvert');
+        boutonBurger.setAttribute('aria-expanded', 'false');
+        menuMobile.setAttribute('aria-hidden', 'true');
+        boutonBurger.classList.remove('navigation__burger--actif');
+        document.body.classList.remove('corps--menu-ouvert');
+      });
+    });
+
+    /* ── Entête : ajouter classe "défilé" au scroll ───────────── */
+    const entete = document.getElementById('entete-principal');
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 50) {
+        entete.classList.add('entete--defilé');
+      } else {
+        entete.classList.remove('entete--defilé');
+      }
+    }, { passive: true });
+
+    /* ── Animations d'apparition au scroll (Intersection Observer) */
+    const elementsAnimés = document.querySelectorAll(
+      '.services__carte, .apropos__contenu, .galerie__carte, .contact__infos, .contact__formulaire-contenant'
+    );
+
+    const observateur = new IntersectionObserver(function (entrées) {
+      entrées.forEach(function (entrée) {
+        if (entrée.isIntersecting) {
+          entrée.target.classList.add('est-visible');
+          observateur.unobserve(entrée.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+    elementsAnimés.forEach(function (el) {
+      el.classList.add('a-animer');
+      observateur.observe(el);
+    });
+
+    /* ── Filtres galerie ──────────────────────────────────────── */
+    const boutonsFiltre  = document.querySelectorAll('.galerie__filtre');
+    const cartesGalerie  = document.querySelectorAll('.galerie__carte');
+
+    boutonsFiltre.forEach(function (bouton) {
+      bouton.addEventListener('click', function () {
+        const filtre = this.dataset.filtre;
+
+        /* Mise à jour état actif des boutons */
+        boutonsFiltre.forEach(function (b) {
+          b.classList.remove('galerie__filtre--actif');
+          b.setAttribute('aria-pressed', 'false');
+        });
+        this.classList.add('galerie__filtre--actif');
+        this.setAttribute('aria-pressed', 'true');
+
+        /* Affichage / masquage des cartes */
+        cartesGalerie.forEach(function (carte) {
+          if (filtre === 'tout' || carte.dataset.categorie === filtre) {
+            carte.style.display = '';
+            setTimeout(() => carte.classList.add('est-visible'), 50);
+          } else {
+            carte.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    /* ── Défilement fluide pour ancres internes ───────────────── */
+    document.querySelectorAll('a[href^="#"]').forEach(function (ancre) {
+      ancre.addEventListener('click', function (e) {
+        const cible = document.querySelector(this.getAttribute('href'));
+        if (cible) {
+          e.preventDefault();
+          const decalage = entete.getBoundingClientRect().height + 8;
+          const positionCible = cible.getBoundingClientRect().top + window.scrollY - decalage;
+          window.scrollTo({ top: positionCible, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

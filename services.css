@@ -1,0 +1,173 @@
+/* ================================================================
+   SERVICES.CSS — Section des Prestations de Florian
+   ================================================================ */
+
+.section-services {
+  background-color: var(--fond-alternatif);
+  padding: var(--section-padding-vertical-sm) var(--padding-conteneur);
+}
+
+@media (min-width: 768px) {
+  .section-services { padding: var(--section-padding-vertical-md) var(--padding-conteneur); }
+}
+@media (min-width: 1024px) {
+  .section-services { padding: var(--section-padding-vertical) var(--padding-conteneur); }
+}
+
+.services__en-tete {
+  text-align: center;
+  max-width: var(--largeur-max-etroite);
+  margin: 0 auto var(--espace-12) auto;
+}
+
+.services__sous-titre {
+  text-transform: uppercase;
+  font-size: var(--taille-sm);
+  color: var(--bleu-clair);
+  font-weight: var(--poids-gras);
+  letter-spacing: 1.5px;
+  margin-bottom: var(--espace-2);
+}
+
+.services__titre {
+  font-family: var(--police-titre);
+  font-size: clamp(var(--taille-2xl), 4vw, var(--taille-4xl));
+  color: var(--bleu-fonce);
+  margin-bottom: var(--espace-4);
+}
+
+.services__description {
+  color: var(--texte-secondaire);
+  font-size: var(--taille-md);
+}
+
+/* Grille Responsive des 3 cartes */
+.services__grille {
+  max-width: var(--largeur-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gouttiere-grille);
+  align-items: stretch;
+}
+
+@media (min-width: 992px) {
+  .services__grille {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Modèle de Carte Standard */
+.services__carte {
+  background-color: var(--fond-principal);
+  border-radius: var(--arrondi-xl);
+  padding: var(--espace-8);
+  border: var(--bordure-fine);
+  box-shadow: var(--ombre-sm);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: var(--transition-normale);
+}
+
+.services__carte:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--ombre-lg);
+}
+
+.services__carte-icone {
+  width: 54px;
+  height: 54px;
+  background-color: var(--bleu-fonce-tres-clair);
+  color: var(--bleu-fonce);
+  border-radius: var(--arrondi-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--taille-xl);
+  margin-bottom: var(--espace-5);
+}
+
+/* Changements de couleur des icônes selon la nature du service */
+.services__carte--clim .services__carte-icone {
+  background-color: var(--bleu-clair-tres-clair);
+  color: var(--bleu-clair);
+}
+
+.services__carte--urgence .services__carte-icone {
+  background-color: var(--rouge-urgence-clair);
+  color: var(--rouge-urgence);
+}
+
+.services__carte-titre {
+  font-family: var(--police-titre);
+  font-size: var(--taille-xl);
+  color: var(--bleu-fonce);
+  margin-bottom: var(--espace-2);
+}
+
+.services__carte-accroche {
+  font-size: var(--taille-sm);
+  color: var(--texte-secondaire);
+  margin-bottom: var(--espace-6);
+}
+
+/* Listes de détails techniques */
+.services__carte-liste {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-3);
+  margin-bottom: var(--espace-8);
+}
+
+.services__carte-liste li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--espace-2);
+  font-size: var(--taille-base);
+  color: var(--texte-secondaire);
+}
+
+.services__carte-liste li i {
+  color: var(--bleu-clair);
+  font-size: var(--taille-md);
+  margin-top: 2px;
+}
+
+.services__carte--urgence .services__carte-liste li i {
+  color: var(--rouge-urgence);
+}
+
+.services__carte-bouton {
+  margin-top: auto;
+  width: 100%;
+}
+
+/* ── CARTE VEDETTE (PLOMBERIE) ──────────────────────────────── */
+.services__carte--vedette {
+  border: 2px solid var(--bleu-clair);
+  box-shadow: var(--ombre-bleue);
+}
+
+@media (min-width: 992px) {
+  .services__carte--vedette {
+    transform: scale(1.04);
+    z-index: var(--z-base);
+  }
+  .services__carte--vedette:hover {
+    transform: scale(1.06) translateY(-5px);
+  }
+}
+
+.services__carte-badge {
+  position: absolute;
+  top: var(--espace-4);
+  right: var(--espace-4);
+  background-color: var(--bleu-clair);
+  color: var(--texte-blanc);
+  font-size: var(--taille-xs);
+  font-weight: var(--poids-gras);
+  padding: var(--espace-1) var(--espace-3);
+  border-radius: var(--arrondi-plein);
+  text-transform: uppercase;
+}

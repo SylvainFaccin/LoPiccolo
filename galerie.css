@@ -1,0 +1,202 @@
+/* ================================================================
+   GALERIE.CSS — Grille Filtrable des Chantiers / Portfolio
+   ================================================================ */
+
+.section-galerie {
+  background-color: var(--fond-principal);
+  padding: var(--section-padding-vertical-sm) var(--padding-conteneur);
+}
+
+@media (min-width: 768px) {
+  .section-galerie { padding: var(--section-padding-vertical-md) var(--padding-conteneur); }
+}
+@media (min-width: 1024px) {
+  .section-galerie { padding: var(--section-padding-vertical) var(--padding-conteneur); }
+}
+
+.galerie__en-tete {
+  text-align: center;
+  max-width: var(--largeur-max-etroite);
+  margin: 0 auto var(--espace-8) auto;
+}
+
+.galerie__sous-titre {
+  text-transform: uppercase;
+  font-size: var(--taille-sm);
+  color: var(--bleu-clair);
+  font-weight: var(--poids-gras);
+  letter-spacing: 1.5px;
+  margin-bottom: var(--espace-2);
+}
+
+.galerie__titre {
+  font-family: var(--police-titre);
+  font-size: clamp(var(--taille-2xl), 4vw, var(--taille-4xl));
+  color: var(--bleu-fonce);
+  margin-bottom: var(--espace-4);
+}
+
+.galerie__description {
+  color: var(--texte-secondaire);
+}
+
+/* ── FILTRES CHANTIERS ───────────────────────────────────────── */
+.galerie__filtres {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--espace-2);
+  flex-wrap: wrap;
+  margin-bottom: var(--espace-10);
+}
+
+.galerie__filtre {
+  background-color: var(--fond-alternatif);
+  color: var(--texte-secondaire);
+  border: var(--bordure-fine);
+  padding: var(--espace-2) var(--espace-5);
+  border-radius: var(--arrondi-plein);
+  font-family: var(--police-corps);
+  font-size: var(--taille-sm);
+  font-weight: var(--poids-moyen);
+  cursor: pointer;
+  transition: var(--transition-normale);
+}
+
+.galerie__filtre:hover {
+  background-color: var(--gris-leger);
+  color: var(--texte-principal);
+}
+
+.galerie__filtre--actif {
+  background-color: var(--bleu-fonce);
+  color: var(--texte-blanc);
+  border-color: var(--bleu-fonce);
+}
+.galerie__filtre--actif:hover {
+  background-color: var(--bleu-fonce);
+  color: var(--texte-blanc);
+}
+
+/* ── GRILLE PHOTO DES RÉALISATIONS ───────────────────────────── */
+.galerie__grille {
+  max-width: var(--largeur-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gouttiere-grille);
+}
+
+@media (min-width: 640px) {
+  .galerie__grille { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 992px) {
+  .galerie__grille { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Configuration des cartes */
+.galerie__carte {
+  background-color: var(--fond-principal);
+  border-radius: var(--arrondi-xl);
+  overflow: hidden;
+  border: var(--bordure-fine);
+  box-shadow: var(--ombre-sm);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-normale);
+}
+
+/* Style asymétrique "Bento Grid" sur les écrans larges */
+@media (min-width: 992px) {
+  .galerie__carte--grande {
+    grid-column: span 2;
+    flex-direction: row;
+  }
+  .galerie__carte--grande .galerie__carte-image {
+    width: 55%;
+    height: 100%;
+  }
+  .galerie__carte--grande .galerie__carte-info {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.galerie__carte:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--ombre-md);
+}
+
+.galerie__carte-image {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background-color: var(--gris-tres-leger);
+}
+
+.galerie__carte-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-lente);
+}
+
+.galerie__carte:hover .galerie__carte-image img {
+  transform: scale(1.05);
+}
+
+/* Étiquette de comparaison Avant/Après */
+.galerie__carte-image-etiquette {
+  position: absolute;
+  top: var(--espace-3);
+  right: var(--espace-3);
+  background-color: rgba(10, 22, 40, 0.75);
+  backdrop-filter: blur(4px);
+  color: var(--texte-blanc);
+  font-size: var(--taille-xs);
+  font-weight: var(--poids-semi-gras);
+  padding: var(--espace-1) var(--espace-3);
+  border-radius: var(--arrondi-sm);
+}
+
+/* Contenu textuel sous la photo */
+.galerie__carte-info {
+  padding: var(--espace-5);
+}
+
+.galerie__carte-categorie {
+  display: inline-block;
+  font-size: var(--taille-xs);
+  text-transform: uppercase;
+  color: var(--bleu-clair);
+  font-weight: var(--poids-gras);
+  letter-spacing: 0.5px;
+  margin-bottom: var(--espace-1);
+}
+
+.galerie__carte-titre {
+  font-family: var(--police-titre);
+  font-size: var(--taille-lg);
+  color: var(--bleu-fonce);
+  margin-bottom: var(--espace-2);
+}
+
+.galerie__carte-info p {
+  font-size: var(--taille-sm);
+  color: var(--texte-secondaire);
+}
+
+/* Pied de galerie avec CTA */
+.galerie__pied {
+  text-align: center;
+  margin-top: var(--espace-12);
+}
+
+.galerie__pied p {
+  font-size: var(--taille-md);
+  font-weight: var(--poids-moyen);
+  color: var(--texte-secondaire);
+  margin-bottom: var(--espace-3);
+}

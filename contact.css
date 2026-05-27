@@ -1,0 +1,263 @@
+/* ================================================================
+   CONTACT.CSS — Formulaire de Devis & Coordonnées d'Intervention
+   ================================================================ */
+
+.section-contact {
+  background-color: var(--fond-alternatif);
+  padding: var(--section-padding-vertical-sm) var(--padding-conteneur);
+}
+
+@media (min-width: 768px) {
+  .section-contact { padding: var(--section-padding-vertical-md) var(--padding-conteneur); }
+}
+@media (min-width: 1024px) {
+  .section-contact { padding: var(--section-padding-vertical) var(--padding-conteneur); }
+}
+
+.contact__en-tete {
+  text-align: center;
+  max-width: var(--largeur-max-etroite);
+  margin: 0 auto var(--espace-12) auto;
+}
+
+.contact__sous-titre {
+  text-transform: uppercase;
+  font-size: var(--taille-sm);
+  color: var(--bleu-clair);
+  font-weight: var(--poids-gras);
+  letter-spacing: 1.5px;
+  margin-bottom: var(--espace-2);
+}
+
+.contact__titre {
+  font-family: var(--police-titre);
+  font-size: clamp(var(--taille-2xl), 4vw, var(--taille-4xl));
+  color: var(--bleu-fonce);
+  margin-bottom: var(--espace-4);
+}
+
+.contact__description {
+  color: var(--texte-secondaire);
+}
+
+.contact__contenu {
+  max-width: var(--largeur-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gouttiere-grille);
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .contact__contenu {
+    grid-template-columns: 0.82fr 1.18fr;
+  }
+}
+
+/* ── BLOC COORDONNÉES DIRECTES (GAUCHE) ─────────────────────── */
+.contact__infos {
+  background-color: var(--bleu-fonce);
+  color: rgba(255, 255, 255, 0.85);
+  padding: var(--espace-8);
+  border-radius: var(--arrondi-xl);
+  box-shadow: var(--ombre-lg);
+}
+
+.contact__infos-titre {
+  font-family: var(--police-titre);
+  font-size: var(--taille-xl);
+  color: var(--texte-white);
+  margin-bottom: var(--espace-6);
+}
+
+.contact__info-ligne {
+  display: flex;
+  gap: var(--espace-4);
+  align-items: flex-start;
+  padding: var(--espace-4) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact__info-ligne:last-of-type {
+  border-bottom: none;
+}
+
+.contact__info-ligne--cliquable:hover {
+  color: var(--texte-blanc);
+  background-color: rgba(255, 255, 255, 0.04);
+  border-radius: var(--arrondi-md);
+}
+
+.contact__info-icone {
+  color: var(--bleu-clair-tres-clair);
+  font-size: var(--taille-xl);
+  margin-top: 2px;
+}
+
+.contact__info-ligne strong {
+  display: block;
+  font-size: var(--taille-sm);
+  color: var(--texte-blanc);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.contact__info-ligne span {
+  display: block;
+  font-size: var(--taille-base);
+}
+
+.contact__urgence-mention {
+  color: #fca5a5;
+  font-weight: var(--poids-semi-gras);
+}
+
+/* Boutons d'action rapide dans la boîte noire */
+.contact__boutons-directs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-3);
+  margin: var(--espace-6) 0;
+}
+
+.contact__bouton-direct {
+  width: 100%;
+}
+
+/* Réseaux sociaux */
+.contact__reseaux {
+  margin-top: var(--espace-6);
+  padding-top: var(--espace-4);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact__reseaux-titre {
+  font-size: var(--taille-sm);
+  text-transform: uppercase;
+  margin-bottom: var(--espace-3);
+}
+
+.contact__reseaux-icones {
+  display: flex;
+  gap: var(--espace-3);
+}
+
+.contact__reseau-lien {
+  width: 38px;
+  height: 38px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--texte-blanc);
+  border-radius: var(--arrondi-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--taille-md);
+}
+
+.contact__reseau-lien:hover {
+  background-color: var(--bleu-clair);
+}
+
+/* ── FORMULAIRE DE CONTACT PROFESSIONNEL (DROITE) ─────────────── */
+.contact__formulaire-contenant {
+  background-color: var(--fond-principal);
+  padding: var(--espace-8);
+  border-radius: var(--arrondi-xl);
+  border: var(--bordure-fine);
+  box-shadow: var(--ombre-sm);
+}
+
+.contact__formulaire {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-5);
+}
+
+.formulaire__ligne--double {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-5);
+}
+
+@media (min-width: 640px) {
+  .formulaire__ligne--double {
+    flex-direction: row;
+  }
+  .formulaire__groupe {
+    flex: 1;
+  }
+}
+
+.formulaire__groupe {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-2);
+}
+
+.formulaire__etiquette {
+  font-size: var(--taille-sm);
+  font-weight: var(--poids-semi-gras);
+  color: var(--bleu-fonce);
+}
+
+.formulaire__champ {
+  font-family: var(--police-corps);
+  font-size: var(--taille-base);
+  padding: var(--espace-3) var(--espace-4);
+  border: 1px solid var(--gris-leger);
+  border-radius: var(--arrondi-md);
+  color: var(--texte-principal);
+  background-color: var(--fond-principal);
+  outline: none;
+  transition: var(--transition-rapide);
+}
+
+.formulaire__champ:focus {
+  border-color: var(--bleu-clair);
+  box-shadow: 0 0 0 3px rgba(45, 130, 200, 0.15);
+}
+
+.formulaire__champ--select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23757575' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
+  background-repeat: no-repeat;
+  background-position: right var(--espace-4) center;
+  background-size: 16px;
+  padding-right: var(--espace-10);
+}
+
+.formulaire__champ--textarea {
+  resize: vertical;
+}
+
+/* Case à cocher RGPD */
+.formulaire__groupe--checkbox {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--espace-3);
+  margin-top: var(--espace-2);
+}
+
+.formulaire__checkbox {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--bleu-clair);
+  cursor: pointer;
+}
+
+.formulaire__etiquette-checkbox {
+  font-size: var(--taille-sm);
+  color: var(--texte-secondaire);
+}
+
+.formulaire__lien-rgpd {
+  color: var(--bleu-clair);
+  text-decoration: underline;
+}
+
+.formulaire__bouton-envoi {
+  width: 100%;
+  margin-top: var(--espace-2);
+}

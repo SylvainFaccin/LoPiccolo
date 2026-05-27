@@ -1,0 +1,198 @@
+/* ================================================================
+   APROPOS.CSS — Présentation de Florian, Qualifications et Valeurs
+   ================================================================ */
+
+.section-apropos {
+  position: relative;
+  padding: var(--section-padding-vertical-sm) var(--padding-conteneur);
+}
+
+@media (min-width: 768px) {
+  .section-apropos { padding: var(--section-padding-vertical-md) var(--padding-conteneur); }
+}
+@media (min-width: 1024px) {
+  .section-apropos { padding: var(--section-padding-vertical) var(--padding-conteneur); }
+}
+
+.apropos__contenu {
+  max-width: var(--largeur-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espace-12);
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .apropos__contenu {
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+}
+
+/* ── ZONE VISUELLE & CERTIFICATIONS (GAUCHE) ─────────────────── */
+.apropos__visuel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-6);
+}
+
+.apropos__photo-cadre {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.apropos__photo-placeholder {
+  background-color: var(--gris-tres-leger);
+  border: var(--bordure-moy);
+  border-radius: var(--arrondi-xl);
+  aspect-ratio: 4 / 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--gris-technique);
+  gap: var(--espace-3);
+}
+
+.apropos__photo-placeholder i {
+  font-size: 64px;
+}
+
+.apropos__photo-badge {
+  position: absolute;
+  bottom: var(--espace-4);
+  right: var(--espace-4);
+  background-color: var(--bleu-fonce);
+  color: var(--texte-blanc);
+  padding: var(--espace-4);
+  border-radius: var(--arrondi-lg);
+  text-align: center;
+  box-shadow: var(--ombre-md);
+  line-height: var(--hauteur-ligne-serre);
+}
+
+.apropos__photo-badge strong {
+  display: block;
+  font-size: var(--taille-3xl);
+  font-family: var(--police-titre);
+}
+
+.apropos__photo-badge span {
+  font-size: var(--taille-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Diplômes techniques officiels */
+.apropos__certifications {
+  background-color: var(--fond-alternatif);
+  padding: var(--espace-5);
+  border-radius: var(--arrondi-lg);
+  border: var(--bordure-fine);
+  max-width: 440px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.apropos__certifications-titre {
+  font-weight: var(--poids-gras);
+  font-size: var(--taille-sm);
+  color: var(--bleu-fonce);
+  text-transform: uppercase;
+  margin-bottom: var(--espace-4);
+}
+
+.apropos__certifications-liste {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-4);
+}
+
+.apropos__certification {
+  display: flex;
+  gap: var(--espace-3);
+  align-items: flex-start;
+}
+
+.apropos__certification-icone {
+  color: var(--bleu-clair);
+  font-size: var(--taille-xl);
+  margin-top: 2px;
+}
+
+.apropos__certification strong {
+  display: block;
+  font-size: var(--taille-base);
+  color: var(--texte-principal);
+}
+
+.apropos__certification em {
+  display: block;
+  font-size: var(--taille-sm);
+  color: var(--gris-technique);
+  font-style: normal;
+}
+
+/* ── TEXTE DE PRÉSENTATION & VALEURS (DROITE) ────────────────── */
+.apropos__sous-titre {
+  text-transform: uppercase;
+  font-size: var(--taille-sm);
+  color: var(--bleu-clair);
+  font-weight: var(--poids-gras);
+  letter-spacing: 1.5px;
+  margin-bottom: var(--espace-2);
+}
+
+.apropos__titre {
+  font-family: var(--police-titre);
+  font-size: clamp(var(--taille-2xl), 4vw, var(--taille-4xl));
+  color: var(--bleu-fonce);
+  line-height: var(--hauteur-ligne-serre);
+  margin-bottom: var(--espace-6);
+}
+
+.apropos__titre em {
+  font-style: italic;
+  color: var(--bleu-clair);
+  font-weight: var(--poids-normal);
+}
+
+.apropos__paragraphe {
+  color: var(--texte-secondaire);
+  font-size: var(--taille-base);
+  margin-bottom: var(--espace-4);
+}
+
+/* Liste des engagements de confiance */
+.apropos__engagements {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-5);
+  margin: var(--espace-8) 0;
+}
+
+.apropos__engagement {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--espace-3);
+}
+
+.apropos__engagement i {
+  font-size: var(--taille-xl);
+  color: var(--bleu-fonce);
+  margin-top: 2px;
+}
+
+.apropos__engagement strong {
+  display: block;
+  font-size: var(--taille-md);
+  color: var(--bleu-fonce);
+}
+
+.apropos__engagement span {
+  display: block;
+  font-size: var(--taille-sm);
+  color: var(--texte-secondaire);
+}

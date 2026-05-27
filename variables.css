@@ -1,0 +1,166 @@
+/* ================================================================
+   VARIABLES.CSS — Système de design global
+   Fichier racine : définit TOUTES les variables CSS utilisées
+   dans l'ensemble du projet Florian Lo Piccolo
+   ================================================================ */
+
+:root {
+
+  /* ── PALETTE DE COULEURS PRINCIPALE ────────────────────────────
+     Extraite du logo de l'entreprise.
+     Convention : utiliser uniquement ces variables dans les fichiers
+     CSS des sections, jamais de couleurs brutes codées en dur.
+  ─────────────────────────────────────────────────────────────── */
+
+  /* Couleurs de la marque */
+  --bleu-fonce:         #0a3370;   /* Confiance, sérieux — titres principaux */
+  --bleu-clair:         #2d82c8;   /* Eau, air, dynamisme — boutons & actifs */
+  --gris-technique:     #757575;   /* Structure, finesse — bordures & icônes */
+
+  /* Couleurs de fond */
+  --fond-principal:     #ffffff;   /* Propreté, clarté — fonds majoritaires */
+  --fond-alternatif:    #f8f9fa;   /* Alternance visuelle entre sections */
+  --fond-sombre:        #0a1628;   /* Fond ultra-sombre pour sections hero */
+
+  /* Couleurs du texte */
+  --texte-principal:    #1a202c;   /* Lisibilité maximale pour corps de texte */
+  --texte-secondaire:   #4a5568;   /* Texte atténué, descriptions, étiquettes */
+  --texte-clair:        #718096;   /* Placeholders, mentions légères */
+  --texte-blanc:        #ffffff;   /* Texte sur fonds sombres */
+
+  /* Couleur d'urgence / action critique */
+  --rouge-urgence:      #dc2626;   /* Bouton appel urgence, alertes */
+  --rouge-urgence-clair:#fee2e2;   /* Fond des zones urgence */
+
+  /* Couleur WhatsApp officielle */
+  --vert-whatsapp:      #25d366;   /* Bouton WhatsApp */
+  --vert-whatsapp-fonce:#128c7e;   /* Hover WhatsApp */
+
+  /* ── TEINTES CALCULÉES (nuances des couleurs principales) ───── */
+  --bleu-fonce-clair:   #0d3f87;   /* Hover de --bleu-fonce */
+  --bleu-fonce-tres-clair: #e8f0fb; /* Fond léger bleu pour badges */
+  --bleu-clair-fonce:   #2471b0;   /* Hover de --bleu-clair */
+  --bleu-clair-tres-clair: #ebf5fc; /* Fond léger turquoise */
+  --gris-leger:         #e2e8f0;   /* Bordures légères, séparateurs */
+  --gris-tres-leger:    #f1f5f9;   /* Fond carte légère */
+
+
+  /* ── TYPOGRAPHIE ────────────────────────────────────────────────
+     Deux familles :
+     - Cormorant Garamond : serif élégant pour h1, h2 (rappel logo)
+     - Outfit : sans-serif moderne pour corps de texte, h3, boutons
+  ─────────────────────────────────────────────────────────────── */
+
+  --police-titre:       'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --police-corps:       'Outfit', 'Segoe UI', Tahoma, sans-serif;
+
+  /* Échelle typographique (rem) */
+  --taille-xs:          0.75rem;   /* 12px */
+  --taille-sm:          0.875rem;  /* 14px */
+  --taille-base:        1rem;      /* 16px */
+  --taille-md:          1.125rem;  /* 18px */
+  --taille-lg:          1.25rem;   /* 20px */
+  --taille-xl:          1.5rem;    /* 24px */
+  --taille-2xl:         1.875rem;  /* 30px */
+  --taille-3xl:         2.25rem;   /* 36px */
+  --taille-4xl:         3rem;      /* 48px */
+  --taille-5xl:         3.75rem;   /* 60px */
+  --taille-6xl:         4.5rem;    /* 72px */
+
+  /* Graisse de police */
+  --poids-leger:        300;
+  --poids-normal:       400;
+  --poids-moyen:        500;
+  --poids-semi-gras:    600;
+  --poids-gras:         700;
+
+  /* Interlignage */
+  --hauteur-ligne-serre:  1.2;
+  --hauteur-ligne-normal: 1.5;
+  --hauteur-ligne-large:  1.75;
+
+
+  /* ── ESPACEMENT ─────────────────────────────────────────────────
+     Système d'espacement cohérent basé sur multiples de 4px
+  ─────────────────────────────────────────────────────────────── */
+
+  --espace-1:   0.25rem;  /* 4px */
+  --espace-2:   0.5rem;   /* 8px */
+  --espace-3:   0.75rem;  /* 12px */
+  --espace-4:   1rem;     /* 16px */
+  --espace-5:   1.25rem;  /* 20px */
+  --espace-6:   1.5rem;   /* 24px */
+  --espace-8:   2rem;     /* 32px */
+  --espace-10:  2.5rem;   /* 40px */
+  --espace-12:  3rem;     /* 48px */
+  --espace-16:  4rem;     /* 64px */
+  --espace-20:  5rem;     /* 80px */
+  --espace-24:  6rem;     /* 96px */
+
+  /* Espacement vertical des sections */
+  --section-padding-vertical:    var(--espace-20);
+  --section-padding-vertical-md: var(--espace-16);
+  --section-padding-vertical-sm: var(--espace-12);
+
+
+  /* ── MISE EN PAGE ───────────────────────────────────────────────
+     Largeurs max, gouttières de grille
+  ─────────────────────────────────────────────────────────────── */
+
+  --largeur-max:          1200px;   /* Largeur max du contenu principal */
+  --largeur-max-etroite:  800px;    /* Pour textes centrés longs */
+  --padding-conteneur:    clamp(1rem, 5vw, 2rem); /* Marges latérales fluides */
+  --gouttiere-grille:     1.5rem;   /* Gouttière entre colonnes / cartes */
+
+
+  /* ── BORDURES & ARRONDIS ────────────────────────────────────── */
+
+  --arrondi-sm:     4px;
+  --arrondi-md:     8px;
+  --arrondi-lg:     12px;
+  --arrondi-xl:     16px;
+  --arrondi-2xl:    24px;
+  --arrondi-plein:  9999px;  /* Pilule / cercle */
+
+  --bordure-fine:   1px solid var(--gris-leger);
+  --bordure-moy:    2px solid var(--gris-leger);
+
+
+  /* ── OMBRES ─────────────────────────────────────────────────── */
+
+  --ombre-xs:    0 1px 2px rgba(0,0,0,.06);
+  --ombre-sm:    0 2px 8px rgba(0,0,0,.08);
+  --ombre-md:    0 4px 16px rgba(0,0,0,.10);
+  --ombre-lg:    0 8px 32px rgba(0,0,0,.12);
+  --ombre-xl:    0 16px 48px rgba(0,0,0,.15);
+  --ombre-bleue: 0 8px 32px rgba(45,130,200,.25);
+
+
+  /* ── TRANSITIONS & ANIMATIONS ───────────────────────────────── */
+
+  --transition-rapide:  all 0.15s ease;
+  --transition-normale: all 0.25s ease;
+  --transition-lente:   all 0.4s ease;
+  --transition-douce:   all 0.3s cubic-bezier(.4,0,.2,1);
+
+
+  /* ── HAUTEUR DE L'ENTÊTE (utilisé pour le décalage de scroll) ─ */
+
+  --hauteur-entete:     72px;    /* Hauteur de la nav principale */
+  --hauteur-barre-top:  40px;    /* Hauteur de la barre de contact */
+  --hauteur-totale-entete: calc(var(--hauteur-entete) + var(--hauteur-barre-top));
+
+  /* Hauteur de la barre mobile fixe (prise en compte dans padding-bottom) */
+  --hauteur-barre-mobile: 64px;
+
+
+  /* ── Z-INDEX (hiérarchie d'empilement) ──────────────────────── */
+
+  --z-base:         1;
+  --z-contenu:      10;
+  --z-navigation:   100;
+  --z-menu-mobile:  200;
+  --z-barre-mobile: 300;
+  --z-modal:        500;
+
+}
