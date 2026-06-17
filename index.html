@@ -93,22 +93,14 @@
 
       <!-- ── Menu mobile déroulant ─────────────────────────────── -->
       <div class="menu-mobile" id="menu-mobile" aria-hidden="true">
-        <ul class="menu-mobile__liste" role="list">
-          <li><a href="#accueil"   class="menu-mobile__lien" data-fermer-menu>Accueil</a></li>
-          <li><a href="#services"  class="menu-mobile__lien" data-fermer-menu>Services</a></li>
-          <li><a href="#a-propos"  class="menu-mobile__lien" data-fermer-menu>À propos</a></li>
-          <li><a href="#galerie"   class="menu-mobile__lien" data-fermer-menu>Réalisations</a></li>
-          <li><a href="#contact"   class="menu-mobile__lien" data-fermer-menu>Contact</a></li>
-        </ul>
-        <div class="menu-mobile__actions">
-          <a href="tel:+33XXXXXXXXX" class="bouton bouton--primaire bouton--large">
-            <i class="ri-phone-fill"></i> Appeler maintenant
-          </a>
-          <a href="https://wa.me/33XXXXXXXXX" class="bouton bouton--whatsapp bouton--large" target="_blank" rel="noopener">
-            <i class="ri-whatsapp-line"></i> WhatsApp
-          </a>
-        </div>
-      </div>
+  <ul class="menu-mobile__liste" role="list">
+    <li><a href="#accueil"   class="menu-mobile__lien" data-fermer-menu>Accueil</a></li>
+    <li><a href="#services"  class="menu-mobile__lien" data-fermer-menu>Services</a></li>
+    <li><a href="#a-propos"  class="menu-mobile__lien" data-fermer-menu>À propos</a></li>
+    <li><a href="#galerie"   class="menu-mobile__lien" data-fermer-menu>Réalisations</a></li>
+    <li><a href="#contact"   class="menu-mobile__lien" data-fermer-menu>Contact</a></li>
+  </ul>
+  </div>
     </nav>
   </header>
   <!-- /FIN ENTÊTE -->
@@ -194,7 +186,7 @@
         <i class="ri-water-flash-line"></i>
       </div>
       <div class="accueil__illustration-carte accueil__illustration-carte--2">
-        <i class="ri-wind-line"></i>
+        <i class="ri-windy-line"></i>
         <span>Climatisation PAC</span>
       </div>
       <div class="accueil__illustration-carte accueil__illustration-carte--3">
@@ -233,7 +225,7 @@
       <!-- ── Bloc 1 : Climatisation & PAC ──────────────────────── -->
       <article class="services__carte services__carte--clim" aria-label="Service Climatisation et PAC">
         <div class="services__carte-icone" aria-hidden="true">
-          <i class="ri-wind-line"></i>
+          <i class="ri-windy-line"></i>
         </div>
         <h3 class="services__carte-titre">Climatisation & PAC</h3>
         <p class="services__carte-accroche">
@@ -341,7 +333,7 @@
             </li>
             <li class="apropos__certification">
               <div class="apropos__certification-icone" aria-hidden="true">
-                <i class="ri-leaf-line"></i>
+                <i class="ri-snowflake-line"></i>
               </div>
               <div>
                 <strong>Attestation Manipulation Fluides Frigorigènes</strong>
@@ -600,10 +592,6 @@
           <a href="tel:+33XXXXXXXXX" class="bouton bouton--urgence bouton--large contact__bouton-direct">
             <i class="ri-phone-fill" aria-hidden="true"></i> Appeler maintenant
           </a>
-          <a href="https://wa.me/33XXXXXXXXX" class="bouton bouton--whatsapp bouton--large contact__bouton-direct"
-             target="_blank" rel="noopener noreferrer">
-            <i class="ri-whatsapp-line" aria-hidden="true"></i> Écrire sur WhatsApp
-          </a>
         </div>
 
         <!-- Réseaux sociaux -->
@@ -778,11 +766,6 @@
       <i class="ri-file-text-line" aria-hidden="true"></i>
       <span>Devis</span>
     </a>
-    <a href="https://wa.me/33XXXXXXXXX" class="barre-mobile-fixe__bouton barre-mobile-fixe__bouton--whatsapp"
-       target="_blank" rel="noopener noreferrer">
-      <i class="ri-whatsapp-line" aria-hidden="true"></i>
-      <span>WhatsApp</span>
-    </a>
   </div>
   <!-- /FIN BARRE MOBILE FIXE -->
 
@@ -796,40 +779,54 @@
     /* ── Mise à jour automatique de l'année de copyright ─────── */
     document.getElementById('annee-en-cours').textContent = new Date().getFullYear();
 
-    /* ── Menu burger mobile ───────────────────────────────────── */
     const boutonBurger = document.getElementById('bouton-burger');
-    const menuMobile   = document.getElementById('menu-mobile');
-    const liensFermer  = document.querySelectorAll('[data-fermer-menu]');
+const menuMobile = document.getElementById('menu-mobile');
+const liensFermer = document.querySelectorAll('[data-fermer-menu]');
 
-    boutonBurger.addEventListener('click', function () {
-      const estOuvert = menuMobile.classList.toggle('menu-mobile--ouvert');
-      boutonBurger.setAttribute('aria-expanded', estOuvert);
-      menuMobile.setAttribute('aria-hidden', !estOuvert);
-      boutonBurger.classList.toggle('navigation__burger--actif');
-      document.body.classList.toggle('corps--menu-ouvert');
-    });
+/* Ouvrir / fermer via le burger */
+boutonBurger.addEventListener('click', function () {
+  const estOuvert = menuMobile.classList.toggle('menu-mobile--ouvert');
 
-    /* Fermeture du menu en cliquant sur un lien */
-    liensFermer.forEach(function (lien) {
-      lien.addEventListener('click', function () {
-        menuMobile.classList.remove('menu-mobile--ouvert');
-        boutonBurger.setAttribute('aria-expanded', 'false');
-        menuMobile.setAttribute('aria-hidden', 'true');
-        boutonBurger.classList.remove('navigation__burger--actif');
-        document.body.classList.remove('corps--menu-ouvert');
-      });
-    });
+  boutonBurger.setAttribute('aria-expanded', estOuvert);
+  menuMobile.setAttribute('aria-hidden', !estOuvert);
 
-    /* ── Entête : ajouter classe "défilé" au scroll ───────────── */
-    const entete = document.getElementById('entete-principal');
-    window.addEventListener('scroll', function () {
-      if (window.scrollY > 50) {
-        entete.classList.add('entete--defilé');
-      } else {
-        entete.classList.remove('entete--defilé');
-      }
-    }, { passive: true });
+  boutonBurger.classList.toggle('navigation__burger--actif');
+  document.body.classList.toggle('corps--menu-ouvert');
+});
 
+/* Fermer si clic sur un lien */
+liensFermer.forEach(function (lien) {
+  lien.addEventListener('click', function () {
+    fermerMenu();
+  });
+});
+
+/* Fermer si clic hors menu */
+document.addEventListener('click', function (event) {
+
+  const clickDansMenu = menuMobile.contains(event.target);
+  const clickBurger = boutonBurger.contains(event.target);
+
+  if (
+    menuMobile.classList.contains('menu-mobile--ouvert') &&
+    !clickDansMenu &&
+    !clickBurger
+  ) {
+    fermerMenu();
+  }
+
+});
+
+/* Fonction unique de fermeture */
+function fermerMenu() {
+  menuMobile.classList.remove('menu-mobile--ouvert');
+
+  boutonBurger.setAttribute('aria-expanded', 'false');
+  menuMobile.setAttribute('aria-hidden', 'true');
+
+  boutonBurger.classList.remove('navigation__burger--actif');
+  document.body.classList.remove('corps--menu-ouvert');
+}
     /* ── Animations d'apparition au scroll (Intersection Observer) */
     const elementsAnimés = document.querySelectorAll(
       '.services__carte, .apropos__contenu, .galerie__carte, .contact__infos, .contact__formulaire-contenant'

@@ -187,55 +187,70 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 220px;
-  height: 220px;
-  background-color: var(--bleu-clair);
+  width: 240px; /* Légèrement agrandi pour bien asseoir le triangle */
+  height: 240px;
+  background: linear-gradient(135deg, var(--bleu-clair), var(--bleu-fonce)); /* Dégradé premium */
   border-radius: var(--arrondi-plein);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--texte-blanc);
-  font-size: 72px;
+  font-size: 80px;
   box-shadow: var(--ombre-bleue);
+  z-index: 1;
 }
 
+/* Design des petites cartes flottantes avec Glassmorphism */
 .accueil__illustration-carte {
   position: absolute;
-  background-color: var(--fond-principal);
-  padding: var(--espace-4) var(--espace-5);
+  background-color: rgba(255, 255, 255, 0.85); /* Légère transparence */
+  backdrop-filter: blur(12px); /* Effet verre dépoli sur le cercle */
+  -webkit-backdrop-filter: blur(12px);
+  padding: var(--espace-3) var(--espace-5);
   border-radius: var(--arrondi-lg);
-  box-shadow: var(--ombre-lg);
+  box-shadow: var(--ombre-md);
   display: flex;
   align-items: center;
   gap: var(--espace-3);
   font-weight: var(--poids-semi-gras);
   font-size: var(--taille-sm);
   color: var(--bleu-fonce);
-  border: var(--bordure-fine);
+  border: 1px solid rgba(255, 255, 255, 0.6); /* Bordure lumineuse façon iOS */
+  z-index: 2; /* Les cartes passent au-dessus du cercle */
 }
 
 .accueil__illustration-carte i {
   font-size: var(--taille-xl);
 }
 
+/* ── DISPOSITION EN TRIANGLE ── */
+
+/* Carte 1 : En haut, centrée */
 .accueil__illustration-carte--1 {
   top: 15%;
-  left: 10%;
+  left: 0;
+  right: 0;
+  margin: 0 auto; /* Permet de centrer sans utiliser transform, préservant l'animation */
+  width: max-content;
   animation: flottement 4s ease-in-out infinite alternate;
 }
 .accueil__illustration-carte--1 i { color: var(--rouge-urgence); }
 
+/* Carte 2 : En bas à gauche */
 .accueil__illustration-carte--2 {
-  bottom: 15%;
-  left: 5%;
+  bottom: 20%;
+  left: 60%;
   animation: flottement 4s ease-in-out infinite alternate 1.3s;
+  width: max-content;
 }
 .accueil__illustration-carte--2 i { color: var(--bleu-clair); }
 
+/* Carte 3 : En bas à droite */
 .accueil__illustration-carte--3 {
-  top: 25%;
-  right: 5%;
+  bottom: 20%;
+  right: 60%;
   animation: flottement 4s ease-in-out infinite alternate 0.7s;
+  width: max-content;
 }
 .accueil__illustration-carte--3 i { color: var(--bleu-fonce); }
 
@@ -253,7 +268,7 @@
 /* Animations CSS */
 @keyframes flottement {
   0% { transform: translateY(0); }
-  100% { transform: translateY(-12px); }
+  100% { transform: translateY(-16px); } /* Amplitude légèrement augmentée */
 }
 
 @keyframes rebond {

@@ -260,14 +260,24 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 26px;
-  height: 18px;
-  background: none;
-  border: none;
+  width: 44px; /* Un peu plus large pour être plus facilement cliquable */
+  height: 40px;
+  padding: 12px 10px;
+  background-color: rgba(255, 255, 255, 0.6); /* Fond semi-transparent */
+  backdrop-filter: blur(8px); /* FLOU actif */
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--arrondi-md);
   cursor: pointer;
   z-index: var(--z-menu-mobile);
+  transition: var(--transition-normale);
 }
 
+.navigation__burger:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* On ajuste les barres pour qu'elles restent centrées dans ce nouveau bouton */
 .navigation__burger-barre {
   width: 100%;
   height: 2px;
@@ -298,14 +308,17 @@ img {
   top: var(--hauteur-entete);
   left: 0;
   right: 0;
-  bottom: 0;
-  background-color: var(--fond-principal);
-  padding: var(--espace-8) var(--padding-conteneur);
+  bottom: auto;
+  
+  background: rgba(255,255,255,0.98);
+  backdrop-filter: none;
+  
+  padding: var(--espace-10) var(--padding-conteneur);
   display: flex;
   flex-direction: column;
   gap: var(--espace-10);
   transform: translateX(100%);
-  transition: var(--transition-douce);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: var(--z-menu-mobile);
 }
 
@@ -316,22 +329,28 @@ img {
 .menu-mobile__liste {
   display: flex;
   flex-direction: column;
-  gap: var(--espace-5);
+  gap: var(--espace-6);
+  margin-top: var(--espace-4);
 }
 
 .menu-mobile__lien {
   font-family: var(--police-titre);
-  font-size: var(--taille-2xl);
+  font-size: 2rem; /* Taille plus imposante pour un menu moderne */
   color: var(--bleu-fonce);
-  font-weight: var(--poids-semi-gras);
+  font-weight: 600;
+  padding: var(--espace-3) 0;
+  border-bottom: 1px solid rgba(10, 51, 112, 0.08);
+  transition: var(--transition-normale);
 }
 
+.menu-mobile__lien:hover {
+  color: var(--bleu-clair);
+  padding-left: var(--espace-4); /* Effet de décalage au clic */
+}
+
+/* Suppression de l'espace dédié aux actions puisqu'il n'y a plus de boutons */
 .menu-mobile__actions {
-  display: flex;
-  flex-direction: column;
-  gap: var(--espace-4);
-  margin-top: auto;
-  padding-bottom: var(--hauteur-barre-mobile);
+  display: none; 
 }
 
 /* ── PIED DE PAGE (FOOTER) ──────────────────────────────────── */
